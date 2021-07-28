@@ -1,16 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components/macro";
-const NavBar = () => {
+
+const NavBar = ({ Home, HowToPlay }) => {
   return (
-    <div>
-      fdfdfd
-      <ul>
-        <li></li>
-        <li></li>
-        <li></li>
-      </ul>
-    </div>
+    <nav>
+      <Link to="/">Home</Link>
+      <Link to="/how-to-play">How To Play</Link>
+    </nav>
   );
 };
 

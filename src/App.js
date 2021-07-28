@@ -3,16 +3,20 @@ import HowToPlay from "./Components/HowToPlay";
 import Home from "./Components/Home";
 import NavBar from "./Components/NavBar";
 import NotFound from "./Components/NotFound";
+import GlobalStyles from "./GlobalStyles";
 function App() {
   return (
-    <Router>
-      <NavBar />
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route path="/How-to-play" component={HowToPlay} />
-        <Route path="*" component={NotFound} />
-      </Switch>
-    </Router>
+    <>
+      <Router>
+        <NavBar Home={Home} HowToPlay={HowToPlay} />
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/how-to-play" component={HowToPlay} />
+          <Route path="*" component={NotFound} />
+        </Switch>
+      </Router>
+      <GlobalStyles />
+    </>
   );
 }
 
