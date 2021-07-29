@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components/macro";
 
-const NavBar = ({ Home, HowToPlay }) => {
+const NavBar = ({ Home, HowToPlay, WarBoard }) => {
   return (
     <Wrapper>
       <ULWrapper>
@@ -17,6 +17,12 @@ const NavBar = ({ Home, HowToPlay }) => {
         </NavLink>
         <NavLink to="/how-to-play" activeClassName="current" exact>
           <li>How to Play</li>
+        </NavLink>
+        <NavLink to="/lets-play-war!" activeClassName="current" exact>
+          <li>Let's Play</li>
+        </NavLink>
+        <NavLink to="/login" activeClassName="current" exact>
+          <li>Login</li>
         </NavLink>
       </ULWrapper>
     </Wrapper>
