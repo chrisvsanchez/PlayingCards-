@@ -24,29 +24,16 @@ const routes = [
 const HowToPlay = () => {
   return (
     <Router>
-      <div style={{ display: "flex" }}>
-        <div
-          style={{
-            padding: "10px",
-            width: "40%",
-            background: "pink",
-            overflow: "visible",
-          }}
-        >
-          <ul
-            style={{
-              listStyleType: "none",
-              padding: 0,
-              height: "auto",
-            }}
-          >
+      <MainWrapper>
+        <SideMenuWrapper>
+          <ULWrapper>
             <li>
               <Link to="/war">War</Link>
             </li>
             <li>
               <Link to="/memory">Memory</Link>
             </li>
-          </ul>
+          </ULWrapper>
 
           <Switch>
             {routes.map((route, index) => (
@@ -58,15 +45,8 @@ const HowToPlay = () => {
               />
             ))}
           </Switch>
-        </div>
-        <div
-          style={{
-            flex: 1,
-            padding: "10px",
-            backgroundColor: "teal",
-            overflow: "auto",
-          }}
-        >
+        </SideMenuWrapper>
+        <ComponentWrapper>
           <Switch>
             {routes.map((route, index) => (
               <Route
@@ -77,10 +57,37 @@ const HowToPlay = () => {
               />
             ))}
           </Switch>
-        </div>
-      </div>
+        </ComponentWrapper>
+      </MainWrapper>
     </Router>
   );
 };
 
 export default HowToPlay;
+const MainWrapper = styled.div`
+  display: flex;
+  /* overflow: hidden; */
+  /* ::-webkit-scrollbar {
+    display: none;
+  } */
+`;
+const SideMenuWrapper = styled.div`
+  padding: 10px;
+  width: 20%;
+  background: pink;
+  overflow: visible;
+`;
+const ULWrapper = styled.ul`
+  list-style-type: none;
+  padding: 0;
+  height: auto;
+`;
+const ComponentWrapper = styled.div`
+  flex: 1;
+  padding: 10px;
+  background-color: teal;
+  overflow: auto;
+  ::-webkit-scrollbar {
+    display: none;
+  }
+`;
