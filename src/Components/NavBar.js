@@ -6,6 +6,12 @@ const NavBar = ({ Home, HowToPlay }) => {
   return (
     <Wrapper>
       <ULWrapper>
+        <AppTitle>
+          <NavLink to="/" exact>
+            GAMBIT
+          </NavLink>
+        </AppTitle>
+
         <NavLink to="/" activeClassName="current" exact>
           <li>Home</li>
         </NavLink>
@@ -20,21 +26,26 @@ const NavBar = ({ Home, HowToPlay }) => {
 export default NavBar;
 const Wrapper = styled.div`
   flex: 1;
+  justify-content: space-evenly;
+  align-items: center;
   height: 50px;
-  background-color: lavender;
+  /* background-color: lavender; */
 `;
 const ULWrapper = styled.ul`
   font-family: "Montserrat", sans-serif;
   display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  align-items: center;
+
   background-color: #0093e9;
   height: inherit;
+
   a {
     text-decoration: none;
     height: auto;
     padding: 10px;
+    color: black;
+    &:hover {
+      color: deeppink;
+    }
   }
   li {
     color: black;
@@ -49,6 +60,14 @@ const ULWrapper = styled.ul`
   .current {
     li {
       border-bottom: 2px solid black;
+      font-weight: 600;
     }
   }
+`;
+const AppTitle = styled.h1`
+  color: black;
+  font-family: "Staatliches", cursive;
+  padding: 0 200px 0 0;
+  align-self: center;
+  height: auto;
 `;

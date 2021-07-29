@@ -1,14 +1,20 @@
 import React from "react";
 import styled from "styled-components/macro";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  NavLink,
+} from "react-router-dom";
 import War from "./GameInstructions/War";
 import Memory from "./GameInstructions/Memory";
 const routes = [
   {
-    path: "/",
+    path: "/how-to-play",
     exact: true,
     sidebar: () => <div>home!</div>,
-    main: () => <h2>Home</h2>,
+    main: () => <War />,
   },
   {
     path: "/war",
@@ -27,12 +33,13 @@ const HowToPlay = () => {
       <MainWrapper>
         <SideMenuWrapper>
           <ULWrapper>
-            <li>
-              <Link to="/war">War</Link>
-            </li>
-            <li>
-              <Link to="/memory">Memory</Link>
-            </li>
+            <h3>Games</h3>
+            <NavLink activeClassName="current" to="/war" exact>
+              <li>War</li>
+            </NavLink>
+            <NavLink activeClassName="current" to="/memory" exact>
+              <li>Memory</li>
+            </NavLink>
           </ULWrapper>
 
           <Switch>
@@ -72,7 +79,7 @@ const MainWrapper = styled.div`
   } */
 `;
 const SideMenuWrapper = styled.div`
-  padding: 10px;
+  padding: 20px;
   width: 20%;
   background: pink;
   overflow: visible;
@@ -81,6 +88,28 @@ const ULWrapper = styled.ul`
   list-style-type: none;
   padding: 0;
   height: auto;
+  text-decoration: none;
+  font-size: 0.8rem;
+  a {
+    text-decoration: none;
+  }
+  a:hover {
+    color: deeppink;
+  }
+  .current {
+    li {
+      font-size: 1rem;
+      font-weight: 700;
+      padding: 5px 0px;
+    }
+  }
+  h3 {
+    color: black;
+    user-select: none;
+    text-align: center;
+    font-family: "Staatliches", cursive;
+    letter-spacing: 0.1rem;
+  }
 `;
 const ComponentWrapper = styled.div`
   flex: 1;
